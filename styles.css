@@ -18,13 +18,26 @@
 .ms-calc .col100 {
     flex-basis: 100%;
     padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .ms-calc .input {
     flex-wrap: wrap;
     display: flex;
+    justify-content: space-around;
     position: relative;
 }
+
+.col100 {
+    margin-block-start: 1em;
+    margin-block-end: 0.5em;
+}
+
+.shaded {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
 input {
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
@@ -43,6 +56,8 @@ input {
     margin: 0em;
     font: 400 13.3333px Arial;
     padding: 1px 2px;
+    margin-right:1rem;
+
     border-width: 2px;
     border-style: inset;
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
@@ -69,14 +84,37 @@ input[type=text], input[type=number] {
     background: #ffffff url(https://static.moneysmart.gov.au/nextgen/img/arrow-down-small-grey.gif)no-repeat 95% 50%;
 }
  
+.flex {
+    /* flex-wrap: wrap; */
+    display: flex;
+    justify-content:space-around; 
+    align-items:center;
+    position: relative;
+}
+
 .yourStrategy {
+
+    margin-left: auto;
+    margin-right: auto;
     background-color: #fbfbfb;
     color: #333;
     font-family: montserrat,sans-serif;
-    line-height: 1.59;
-    margin: 0;
-    padding: 0;
+    padding-bottom: 1rem; 
     position: relative;
+}
+
+.additionalStrategy {
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 79%;
+    background-color: #fbfbfb;
+    color: #333;
+    font-family: montserrat,sans-serif;
+    padding-left: 1rem; 
+    padding-top: 0.01rem;
+    padding-bottom: 1rem;
+    
 }
 
 select {
@@ -108,8 +146,11 @@ select {
 
 p {
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    /* margin-top: 1rem;
+    margin-bottom: 1rem; */
+    margin-block-end: 0.5em;
+    margin-block-start: 0.5em;
+    margin-block-end: 0em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     width: 30% ;
@@ -118,7 +159,7 @@ p {
 label:not(.chkLabel) {
     display: block;
     font-size: .75rem;
-    margin: .5rem 0;
+    margin: 0.6rem 0;
     color: #666;
 }
 
