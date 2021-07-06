@@ -1,3 +1,45 @@
+var iniPrincipal = document.getElementById("pv").value;
+var rate = document.getElementById("anualInterest").value;
+var regContri = document.getElementById("reg").value;
+var regFreq = document.getElementById("freq").value;
+var years = document.getElementById("investYears").value;
+var compFreq = document.getElementById("compFreq").value;
+var addContri1 = document.getElementById("input1a").value;
+var addYear1 = document.getElementById("input1b").value;
+var addContri1 = document.getElementById("input2a").value;
+var addYear1 = document.getElementById("input2b").value;
+
+var yearArr = [];
+var iniPrincipalArr = [];
+var regContriArr = [];
+var addContriArr = [];
+var interestArr = [];
+
+var iniPrincipalObj = {
+    name: 'Initial Principal',
+    data: iniPrincipalArr
+};
+
+var regContriObj = {
+    name: 'Regular Deposits',
+    data: regContriArr
+};
+
+var addContriObj = {
+    name: 'Additional Investment',
+    data: addContriArr
+};
+
+
+var dataArr = [];
+
+
+const 
+
+
+
+
+
 function getYearlyData(deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear) {
     /**
      *  deposit: Int -> The initial deposit for the interest calculation. e.g, $10,000.
