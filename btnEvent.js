@@ -79,24 +79,6 @@ const confirmBtn = () => {
 
 
 
-// <button onclick="myFunction()">Try it</button>
-// <div id="form"></div>
-// <div id="footer"></div>
-
-{/* <div class="flex">
-    <div class="input yourStrategy">
-        <h3 class="col100"> Your strategy </h3>
-        <p>
-            <label for="input1">Add deposit1:</label>
-            <input id="input1" inputmode="numeric" type="text" aria-required="true" />
-        </p>
-        <p>
-            <label for="input2">Add deposit2:</label>
-            <input id="input2" inputmode="numeric" type="text" aria-required="true" />
-        </p>
-    </div>
-</div> */}
-
 
 
 

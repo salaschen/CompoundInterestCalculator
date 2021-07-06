@@ -14,17 +14,17 @@
                     <h3 class="col100"> Your strategy </h3>
                     <p>
                         <label for="pv">Initial investment:</label>
-                        <input id="pv" inputmode="numeric" type="text" aria-required="true" value="10000" />
+                        <input id="pv" inputmode="numeric" type="text" aria-required="true" placeholder="10000" />
                     </p>
                     <p>
                         <label for="reg">Regular contribution:</label>
-                        <input id="reg" inputmode="numeric" type="text" aria-required="true" value="200" />
+                        <input id="reg" inputmode="numeric" type="text" aria-required="true" placeholder="200" />
                     </p>
                     <p>
                         <label for="freq">Contribution Frequency:</label>
                         <select id="freq">
-                            <option value="1"> Annually</option>
-                            <option value="12" selected="selected">Monthly</option>
+                            <option value="1" selected="selected"> Annually</option>
+                            <option value="12">Monthly</option>
                             <option value="26"> Fortnightly</option>
                             <option value="52">Weekly</option>
                             <option value="365">Daily</option>
@@ -33,17 +33,17 @@
                     <p>
                         <label for="compFreq">Compounding frequency</label>
                         <select id="compFreq">
-                            <option value="12" selected="selected"> Monthly</option>
-                            <option value="1">Annually</option>
+                            <option value="12"> Monthly</option>
+                            <option value="1" selected="selected">Annually</option>
                         </select>
                     </p>
                     <p>
                         <label for="investYears"> Number of years: (max 50)</label>
-                        <input id="investYears" inputmode="numeric" type="text" value="30" />
+                        <input id="investYears" inputmode="numeric" type="text" placeholder="30" />
                     </p>
                     <p>
                         <label for="annualInterest"> Annual interest rate: (max 20%)</label>
-                        <input id="anualInterest" inputmode="numeric" type="text" value="5" />
+                        <input id="anualInterest" inputmode="numeric" type="text" placeholder="5" />
                     </p>
                 </div>
             </div>
@@ -61,108 +61,13 @@
     </figure>
 
     <!--Create Charts Script -->
-
-
     <script src="btnEvent.js"></script>
-    <script src="main.js"></script>
-    <script src="highcharts.js"></script>
-    <!-- <script src="./highcharts.js"></script> -->
-    <!-- <script type="text/javascript">
-        let yearsInvestment = 6;
-        let xAxisArray = [];
-        for (let i = 1; i <= yearsInvestment; i++) { xAxisArray.push(i); }
-
-        /**
-         * 3 Series: 
-         *  1) Deposit, including initial deposits, second deposits and third deposits.
-         *  2) Total interest generated all these years.
-         *  3) Total regular deposits.
-         */
-        let series = [];
-        let initialDeposit = {
-            name: "Initial Deposit",
-            data: [1, 2, 3, 4, 5, 6],
-        };
-        let secondDeposit = {
-            name: "Second Deposit",
-            data: [0, 0, 0, 5, 7, 8],
-        };
-        series = [secondDeposit, initialDeposit];
-
-        Highcharts.chart('container', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Results'
-            },
-            xAxis: {
-                // categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
-                // categories: [1, 2, 3, 4, 5]
-                categories: xAxisArray,
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'savings'
-                },
-                stackLabels: {
-                    enabled: true,
-                    style: {
-                        fontWeight: 'bold',
-                        color: ( // theme
-                            Highcharts.defaultOptions.title.style &&
-                            Highcharts.defaultOptions.title.style.color
-                        ) || 'gray'
-                    }
-                }
-            },
-            legend: {
-                align: 'right',
-                x: -30,
-                verticalAlign: 'top',
-                y: 25,
-                floating: true,
-                backgroundColor:
-                    Highcharts.defaultOptions.legend.backgroundColor || 'white',
-                borderColor: '#CCC',
-                borderWidth: 1,
-                shadow: false
-            },
-            tooltip: {
-                headerFormat: '<b>{point.x}</b><br/>',
-                pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-            },
-            plotOptions: {
-                column: {
-                    stacking: 'normal',
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
-            },
-            series: series
-            /**
-            [{
-
-                name: 'John',
-                data: [5, 3, 4, 7, 2]
-            }, {
-                name: 'Jane',
-                data: [2, 2, 3, 2, 1]
-            }, {
-                name: 'Joe',
-                data: [3, 4, 4, 2, 5]
-            }]
-            */
-        });
-    </script> -->
-    <!--
+    <!-- <script src="main.js"></script> -->
+    <script src="highchart.js"></script> 
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    -->
 
 </body>
 

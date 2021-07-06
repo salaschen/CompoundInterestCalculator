@@ -4,15 +4,18 @@ const chart = () => {
             type: 'column'
         },
         title: {
-            text: 'Stacked column chart'
+            text: 'Compound Interest Calculator'
         },
         xAxis: {
-            categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+            categories: ['1', '2', '3', '4', '5'],
+            title: {
+                text: 'Years'
+            },
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Total fruit consumption'
+                text: 'Savings'
             },
             stackLabels: {
                 enabled: true,
@@ -23,14 +26,15 @@ const chart = () => {
                         Highcharts.defaultOptions.title.style.color
                     ) || 'gray'
                 }
-            }
+            },
+            reversedStacks: false
         },
         legend: {
             align: 'right',
             x: -30,
             verticalAlign: 'top',
             y: 25,
-            floating: true,
+            // floating: true,
             backgroundColor:
                 Highcharts.defaultOptions.legend.backgroundColor || 'white',
             borderColor: '#CCC',
@@ -38,26 +42,39 @@ const chart = () => {
             shadow: false
         },
         tooltip: {
-            headerFormat: '<b>{point.x}</b><br/>',
-            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+            formatter: function () {                
+                var tooltip='<table><caption style="text-align: left">After '+this.x+' Year/s:</caption><tbody>';
+                //loop each point in this.points
+                this.points.forEach(point =>{
+                    tooltip += '<tr><th style="color: ' + point.series.color + '">' + point.series.name + ': </th>'
+                        + '<td style="text-align: right">$' + point.y + '</td></tr>'
+                });
+                tooltip += '<tr><th>Total: </th>'
+                + '<td style="text-align: right"><b>$' + +this.points[0].total + '</b></td></tr></tbody></table>';
+
+                return tooltip;
+            }, 
+            useHTML: true,
+            shared: true
         },
         plotOptions: {
             column: {
-                stacking: 'normal',
-                dataLabels: {
-                    enabled: true
-                }
+                stacking: 'normal'
             }
         },
         series: [{
-            name: 'John',
+            name: 'Initial Principal',
             data: [5, 3, 4, 7, 2]
         }, {
-            name: 'Jane',
+            name: 'Regular Deposits',
             data: [2, 2, 3, 2, 1]
         }, {
-            name: 'Joe',
+            name: 'Additional Investment',
             data: [3, 4, 4, 2, 5]
-        }]
+        }, {
+            name: 'Total Interest',
+            data: [3, 4, 4, 2, 5]
+        },
+        ]
     });
-} 
+}
