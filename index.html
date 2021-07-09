@@ -45,13 +45,20 @@
                         <label for="annualInterest"> Annual interest rate: (max 20%)</label>
                         <input id="anualInterest" inputmode="numeric" type="text" placeholder="5" />
                     </p>
+                    <p id="additionalDepositButton">
+                        <button onclick="confirmBtn()">Additional Deposit</button>
+                    </p>
+                    <p></p>
+                    <p>
+                        <!-- debug, print out generic chart -->
+                        <button onclick="chart()">Calculate</button>
+                    </p>
                 </div>
             </div>
+
         </div>
     </div>
-    <div id="form"></div>
-    <button onclick="confirmBtn()">Calculate</button>
-     
+
     <div id="footer"></div>
     <figure class="highcharts-figure">
         <div id="container"></div>
@@ -63,7 +70,7 @@
     <!--Create Charts Script -->
     <script src="btnEvent.js"></script>
     <script src="main.js"></script>
-    <script src="highchart.js"></script> 
+    <script src="highchart.js"></script>
     <script src="highcharts.js"></script>
     <!--
     <script src="https://code.highcharts.com/highcharts.js"></script>
