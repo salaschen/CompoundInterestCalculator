@@ -14,11 +14,11 @@
                     <h3 class="col100"> Your strategy </h3>
                     <p>
                         <label for="pv">Initial investment:</label>
-                        <input id="pv" inputmode="numeric" type="text" aria-required="true" placeholder="10000" />
+                        <input id="pv" inputmode="numeric" type="text" aria-required="true" value="10000" />
                     </p>
                     <p>
                         <label for="reg">Regular contribution:</label>
-                        <input id="reg" inputmode="numeric" type="text" aria-required="true" placeholder="200" />
+                        <input id="reg" inputmode="numeric" type="text" aria-required="true" value="200" />
                     </p>
                     <p>
                         <label for="freq">Contribution Frequency:</label>
@@ -39,23 +39,24 @@
                     </p>
                     <p>
                         <label for="investYears"> Number of years: (max 50)</label>
-                        <input id="investYears" inputmode="numeric" type="text" placeholder="30" />
+                        <input id="investYears" inputmode="numeric" type="text" value="30" />
                     </p>
                     <p>
                         <label for="annualInterest"> Annual interest rate: (max 20%)</label>
-                        <input id="anualInterest" inputmode="numeric" type="text" placeholder="5" />
+                        <input id="anualInterest" inputmode="numeric" type="text" value="5" />
                     </p>
                     <p id="additionalDepositButton">
                         <button onclick="confirmBtn()">Additional Deposit</button>
                     </p>
                     <p></p>
                     <p>
-                        <!-- debug, print out generic chart -->
-                        <button onclick="chart()">Calculate</button>
+                        <button onclick="genChart()">Calculate</button> 
+                        <!-- 
+                        <button onclick="calculator()">Calculate</button>
+                        -->
                     </p>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -72,12 +73,34 @@
     <script src="main.js"></script>
     <script src="highchart.js"></script>
     <script src="highcharts.js"></script>
-    <!--
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    -->
+
+    <script type="text/javascript">
+        function genChart() {
+            let deposit = parseInt(document.getElementById("pv").value) ; 
+            let regContribution = parseInt(document.getElementById("reg").value) ; 
+            let contributeFreq = parseInt(document.getElementById("freq").value) ; 
+            let compoundFreq = parseInt(document.getElementById("compFreq").value) ; 
+            let investYear = parseInt(document.getElementById("investYears").value) ; 
+            let interestRate = parseInt(document.getElementById("anualInterest").value) / 100 ;
+
+            let additionalInvestments = [] ; 
+            for (let id=1 ; ; id++) {
+                let elementId = `input${id}` ;
+                let extraDepositElement = document.getElementById(`${elementId}a`) ; 
+                if (!extraDepositElement) 
+                    break ; 
+                let extraDeposit = parseInt(extraDepositElement.value) ; 
+                let year = parseInt(document.getElementById(`${elementId}b`).value) ; 
+                additionalInvestments.push([extraDeposit, year]) ; 
+            }
+
+            let data = getYearlyDataWithAdditionalInvestment
+                (deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear, additionalInvestments) ;
+            let yearList = genYearList(investYear) ; 
+            
+            chart(yearList, data) ; 
+        }
+    </script>   
 
 </body>
 

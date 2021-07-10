@@ -1,7 +1,8 @@
 const chart = (yearArr, dataArr) => {
     Highcharts.chart('container', {
         chart: {
-            type: 'column'
+            type: 'column', 
+            height: (16 / 16 * 100) + '%' // 16:16 ratio
         },
         title: {
             text: 'Compound Interest Calculator'
