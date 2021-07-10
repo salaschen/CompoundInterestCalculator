@@ -93,15 +93,60 @@ regContriArrGenerator(years, regContri, regFreq);
 // let addYear2 = 4;
 const addContriArrGenerator = (years, addContri1, addYear1, addContri2, addYear2) => {
     addContriArr = new Array(years);
-    for (let i = 0; i < addContriArr.length; i++) {
-        addContriArr[i] = 0;
+    // if ((!addContri1 && (!addContri2 || addContri2 === 0)) || (addContri1 === 0 && (!addContri2 || addContri2 === 0))) {
+    //     for (let i = 0; i < addContriArr.length; i++) {
+    //         addContriArr[i] = 0;
+    //     };
+    // };
+
+    // if (addContri1 !== 0 && (!addContri2 || addContri2 === 0)) {
+    //     for (let i = 0; i < addContriArr.length; i++) {
+    //         addContriArr[i] = 0;
+    //     };
+    //     for (let i = addYear1 - 1; i < addContriArr.length; i++) {
+    //         addContriArr[i] = Math.round(addContriArr[i] + addContri1);
+    //     };
+    // };
+
+    // if (addContri1 !== 0 && addContri2 !== 0) {
+    //     for (let i = 0; i < addContriArr.length; i++) {
+    //         addContriArr[i] = 0;
+    //     };
+    //     for (let i = addYear1 - 1; i < addContriArr.length; i++) {
+    //         addContriArr[i] = Math.round(addContriArr[i] + addContri1);
+    //     };
+    //     for (let i = addYear2 - 1; i < addContriArr.length; i++) {
+    //         addContriArr[i] = Math.round(addContriArr[i] + addContri2);
+    //     };
+    // }
+
+
+    if (addContri1 !== 0 && addContri2 !== 0) {
+        for (let i = 0; i < addContriArr.length; i++) {
+            addContriArr[i] = 0;
+        };
+        for (let i = addYear1 - 1; i < addContriArr.length; i++) {
+            addContriArr[i] = Math.round(addContriArr[i] + addContri1);
+        };
+        for (let i = addYear2 - 1; i < addContriArr.length; i++) {
+            addContriArr[i] = Math.round(addContriArr[i] + addContri2);
+        };
+    } else if (addContri1 !== 0 && (!addContri2 || addContri2 === 0)) {
+        for (let i = 0; i < addContriArr.length; i++) {
+            addContriArr[i] = 0;
+        };
+        for (let i = addYear1 - 1; i < addContriArr.length; i++) {
+            addContriArr[i] = Math.round(addContriArr[i] + addContri1);
+        };
+        for (let i = addYear2 - 1; i < addContriArr.length; i++) {
+            addContriArr[i] = Math.round(addContriArr[i] + addContri2);
+        };
+    } else {
+        for (let i = 0; i < addContriArr.length; i++) {
+            addContriArr[i] = 0;
+        };
     };
-    for (let i = addYear1 - 1; i < addContriArr.length; i++) {
-        addContriArr[i] = Math.round(addContriArr[i] + addContri1);
-    };
-    for (let i = addYear2 - 1; i < addContriArr.length; i++) {
-        addContriArr[i] = Math.round(addContriArr[i] + addContri2);
-    };
+
 
     return addContriArr;
 }
@@ -109,8 +154,9 @@ addContriArrGenerator(years, addContri1, addYear1, addContri2, addYear2);
 
 var totalArr = [];
 
-function totalArrGeneratore(years, compFreq, iniNum, rate, regContri ,regFreq,addContri1, addYear1, addContri2, addYear2) {
-    let duration ;
+function totalArrGeneratore(years, compFreq, iniNum, rate, regContri, regFreq, addContri1, addYear1, addContri2, addYear2) {
+    let duration;
+    let calPeriods;
 
     switch (regFreq) {
         case 1:
@@ -131,29 +177,99 @@ function totalArrGeneratore(years, compFreq, iniNum, rate, regContri ,regFreq,ad
         default:
             break;
     }
+
+    switch (compFreq) {
+        case 1:
+            calPeriods = 1;
+            break;
+        case 12:
+            calPeriods = 12;
+            break;
+        default:
+            break;
+    }
+
     totalArr = new Array(years);
-    totalArr[0] = iniNum;
-    for (let i = 1; i < totalArr.length; i++) {
-        if (compFreq=1) {
-            if (i=== addYear1-1) {
-                totalArr[i] = addContri1 + addContri1
-            } else {
-                
-            }
+    totalArr[0] = Math.round(
+        iniNum * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+        + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2));
+    );
+
+    if (addContri1 !== 0) {
+        for (let i = 1; i < addYear1 - 1; i++) {
+            totalArr[i] = Math.round(
+                totalArr[i - 1] * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+                + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2))
+            );
+        };
+        totalArr[addYear1 - 1] = Math.round(
+            totalArr[addYear1 - 2] * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+            + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2))
+            + addContri1
+        );
+
+        if (addContri2 !== 0) {
+            for (let i = addYear1; i < addYear2 - 1; i++) {
+                totalArr[i] = Math.round(
+                    totalArr[i - 1] * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+                    + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2))
+                );
+            };
+            totalArr[addYear2 - 1] = Math.round(
+                totalArr[addYear2 - 2] * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+                + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2))
+                + addContri2
+            );
+            for (let i = addYear2; i < totalArr.length; i++) {
+                totalArr[i] = Math.round(
+                    totalArr[i - 1] * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+                    + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2))
+                );
+            };
         } else {
-            
+            for (let i = addYear1; i < totalArr.length; i++) {
+                totalArr[i] = Math.round(
+                    totalArr[i - 1] * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+                    + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2))
+                );
+            };
         }
+    } else if (addContri2 !== 0) {
+        for (let i = 1; i < addYear2 - 1; i++) {
+            totalArr[i] = Math.round(
+                totalArr[i - 1] * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+                + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2))
+            );
+        };
+        totalArr[addYear2 - 1] = Math.round(
+            totalArr[addYear1 - 2] * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+            + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2))
+            + addContri2
+        );
+        for (let i = addYear2; i < totalArr.length; i++) {
+            totalArr[i] = Math.round(
+                totalArr[i - 1] * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+                + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2))
+            );
+        };
+    } else {
+        for (let i = 1; i < totalArr.length; i++) {
+            totalArr[i] = Math.round(
+                totalArr[i - 1] * ((1 + (rate * 0.01 / calPeriods)) ^ (calPeriods))
+                + regContri * (regFreq + rate * 0.01 / 365 * (365 * regFreq - duration * regFreq * (regFreq + 1) / 2))
+            );
+        };
+    }
+};
 
 
-        regContriArr[i] = Math.round(regContri * regFreq * (i + 1));
-    };
-    return regContriArr;
-}
 
 
-
-function interestArrGenerator(years,) {
-
+function interestArrGenerator() {
+    interestArr = new Array(years);
+    for (let i = 1; i < totalArr.length; i++) {
+        interestArr[i] = totalArr[i] - iniPrincipalArr[i] - regContriArr[i] - addContriArr[i];
+    }
 }
 function iniPrincipalObjGenerator(params) {
 

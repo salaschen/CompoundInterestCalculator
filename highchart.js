@@ -1,4 +1,4 @@
-const chart = () => {
+const chart = (yearArr, dataArr) => {
     Highcharts.chart('container', {
         chart: {
             type: 'column'
@@ -7,7 +7,8 @@ const chart = () => {
             text: 'Compound Interest Calculator'
         },
         xAxis: {
-            categories: ['1', '2', '3', '4', '5'],
+            categories: yearArr,
+            // categories: ['1', '2', '3', '4', '5'],
             title: {
                 text: 'Years'
             },
@@ -42,18 +43,18 @@ const chart = () => {
             shadow: false
         },
         tooltip: {
-            formatter: function () {                
-                var tooltip='<table><caption style="text-align: left">After '+this.x+' Year/s:</caption><tbody>';
+            formatter: function () {
+                var tooltip = '<table><caption style="text-align: left">After ' + this.x + ' Year/s:</caption><tbody>';
                 //loop each point in this.points
-                this.points.forEach(point =>{
+                this.points.forEach(point => {
                     tooltip += '<tr><th style="color: ' + point.series.color + '">' + point.series.name + ': </th>'
                         + '<td style="text-align: right">$' + point.y + '</td></tr>'
                 });
                 tooltip += '<tr><th>Total: </th>'
-                + '<td style="text-align: right"><b>$' + +this.points[0].total + '</b></td></tr></tbody></table>';
+                    + '<td style="text-align: right"><b>$' + +this.points[0].total + '</b></td></tr></tbody></table>';
 
                 return tooltip;
-            }, 
+            },
             useHTML: true,
             shared: true
         },
@@ -62,19 +63,20 @@ const chart = () => {
                 stacking: 'normal'
             }
         },
-        series: [{
-            name: 'Initial Principal',
-            data: [5, 3, 4, 7, 2]
-        }, {
-            name: 'Regular Deposits',
-            data: [2, 2, 3, 2, 1]
-        }, {
-            name: 'Additional Investment',
-            data: [3, 4, 4, 2, 5]
-        }, {
-            name: 'Total Interest',
-            data: [3, 4, 4, 2, 5]
-        },
-        ]
+        series: dataArr
+        // series: [{
+        //     name: 'Initial Principal',
+        //     data: [5, 3, 4, 7, 2]
+        // }, {
+        //     name: 'Regular Deposits',
+        //     data: [2, 2, 3, 2, 1]
+        // }, {
+        //     name: 'Additional Investment',
+        //     data: [3, 4, 4, 2, 5]
+        // }, {
+        //     name: 'Total Interest',
+        //     data: [3, 4, 4, 2, 5]
+        // },
+        // ]
     });
 }
