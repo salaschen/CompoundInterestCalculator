@@ -50,23 +50,30 @@
                     </p>
                     <p></p>
                     <p>
-                        <button onclick="genChart()">Calculate</button> 
+                        <button onclick="genChart()">Calculate</button>
                         <!-- 
                         <button onclick="calculator()">Calculate</button>
                         -->
                     </p>
                 </div>
             </div>
+            <div class="break yourStrategy">
+                <figure class="highcharts-figure">
+                    <div hidden id="container"></div>
+                    <div id="description">
+                        <!-- 
+                        <p class="highcharts-description">
+                            Hello world.
+                        </p>
+                    --> 
+                    </div>
+                </figure>
+            </div>
         </div>
     </div>
 
-    <div id="footer"></div>
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description">
-            Hello world.
-        </p>
-    </figure>
+    <!-- <div id="footer"></div> -->
+
 
     <!--Create Charts Script -->
     <script src="btnEvent.js"></script>
@@ -76,31 +83,48 @@
 
     <script type="text/javascript">
         function genChart() {
-            let deposit = parseInt(document.getElementById("pv").value) ; 
-            let regContribution = parseInt(document.getElementById("reg").value) ; 
-            let contributeFreq = parseInt(document.getElementById("freq").value) ; 
-            let compoundFreq = parseInt(document.getElementById("compFreq").value) ; 
-            let investYear = parseInt(document.getElementById("investYears").value) ; 
-            let interestRate = parseInt(document.getElementById("anualInterest").value) / 100 ;
+            let deposit = parseInt(document.getElementById("pv").value);
+            let regContribution = parseInt(document.getElementById("reg").value);
+            let contributeFreq = parseInt(document.getElementById("freq").value);
+            let compoundFreq = parseInt(document.getElementById("compFreq").value);
+            let investYear = parseInt(document.getElementById("investYears").value);
+            let interestRate = parseInt(document.getElementById("anualInterest").value) / 100;
 
-            let additionalInvestments = [] ; 
-            for (let id=1 ; ; id++) {
-                let elementId = `input${id}` ;
-                let extraDepositElement = document.getElementById(`${elementId}a`) ; 
-                if (!extraDepositElement) 
-                    break ; 
-                let extraDeposit = parseInt(extraDepositElement.value) ; 
-                let year = parseInt(document.getElementById(`${elementId}b`).value) ; 
-                additionalInvestments.push([extraDeposit, year]) ; 
+            let additionalInvestments = [];
+            for (let id = 1; ; id++) {
+                let elementId = `input${id}`;
+                let extraDepositElement = document.getElementById(`${elementId}a`);
+                if (!extraDepositElement)
+                    break;
+                let extraDeposit = parseInt(extraDepositElement.value);
+                let year = parseInt(document.getElementById(`${elementId}b`).value);
+                additionalInvestments.push([extraDeposit, year]);
             }
 
             let data = getYearlyDataWithAdditionalInvestment
-                (deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear, additionalInvestments) ;
-            let yearList = genYearList(investYear) ; 
+                (deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear, additionalInvestments);
+            let yearList = genYearList(investYear);
+
+            chart(yearList, data);
+            let container = document.getElementById("container") ; 
+            container.removeAttribute("hidden") ; 
+
+            // write the Your Strategy results
+            /**
+            let resultContainer = document.getElementById("description") ; 
+            let p1 = document.createElement("p") ; p1.textContent = "Your Strategy:" ;
+            resultContainer.appendChild(p1) ; 
             
-            chart(yearList, data) ; 
+            // intial deposit
+            let pv = document.createElement("p") ; 
+            {
+                let sp1 = document.createElement("span") ; 
+                sp1.className = "key pv" ;
+                let text = document.createTextNode("Initial deposit:") ; 
+            }
+            */
         }
-    </script>   
+    </script>
 
 </body>
 

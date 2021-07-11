@@ -188,6 +188,17 @@ h2.shaded {
     margin: 1em auto;
 }
 
+.highcharts-title {
+    fill: #434348;
+    font-weight: bold;
+    /* letter-spacing: 0.3em; */
+    /* font-size: 1.65rem; */
+    background-color: #f3f3f3;
+    color: #0047f5;
+    border-bottom: 1px solid #c3c3c3;
+    padding: 1rem 1.5rem;
+}
+
 .highcharts-data-table table {
     font-family: Verdana, sans-serif;
     border-collapse: collapse;
@@ -216,3 +227,9 @@ h2.shaded {
     background: #f1f7ff;
 }
 
+.ms-calc .key {
+    display: inline-block;
+    width: 15px;
+    height: 12px;
+    margin-right: 5px;
+}

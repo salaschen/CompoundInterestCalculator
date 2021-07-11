@@ -72,7 +72,7 @@ function getYearlyDataWithAdditionalInvestment
      */
     let addInvestments = sortAndCombineInvestments(additionalInvestments) ; 
     // debug
-    console.log(deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear, additionalInvestments) ;
+    // console.log(deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear, additionalInvestments) ;
 
     // if there's no additional investments. 
     if (addInvestments.length == 0) {

@@ -1,11 +1,18 @@
 const chart = (yearArr, dataArr) => {
+    Highcharts.setOptions({
+        colors: ['#058DC7', '#50B432','orange', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+    });
+
     Highcharts.chart('container', {
         chart: {
             type: 'column', 
             height: (16 / 16 * 100) + '%' // 16:16 ratio
         },
         title: {
-            text: 'Compound Interest Calculator'
+            text: 'Result',
+            align: 'left',
+            style: {"color" : "blue", "font-size" : "1.7rem"}
+            
         },
         xAxis: {
             categories: yearArr,
