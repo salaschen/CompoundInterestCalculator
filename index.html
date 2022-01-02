@@ -2,7 +2,244 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <style>
+    #container {
+        height: 800px; 
+    }
+    
+    #content {
+        max-width: 47.05rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: block;
+    }
+    
+    .ms-calc {
+        background-color: transparent;
+        padding: 0;
+        margin: 2rem 0;
+        border: 1px solid #e1e1e1;
+    }
+    .ms-calc .col100 {
+        flex-basis: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+    
+    .ms-calc .input {
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+    }
+    
+    .col100 {
+        margin-block-start: 1em;
+        margin-block-end: 0.5em;
+    }
+    
+    .shaded {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
+    
+    input {
+        -webkit-writing-mode: horizontal-tb !important;
+        text-rendering: auto;
+        color: -internal-light-dark(black, white);
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: start;
+        appearance: auto;
+        background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+        -webkit-rtl-ordering: logical;
+        cursor: text;
+        margin: 0em;
+        font: 400 13.3333px Arial;
+        padding: 1px 2px;
+        margin-right:1rem;
+    
+        border-width: 2px;
+        border-style: inset;
+        border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+        border-image: initial;
+    }
+    
+    input[type=text], input[type=number] {
+        padding: 1rem;
+        font: normal normal normal 1rem/100% 'Montserrat',sans-serif;
+        border: 0;
+        border-radius: .25rem;
+        box-sizing: border-box;
+        border: solid .05rem #f3f3f3;
+    }
+    #content select, #calculator-container select {
+        padding: 1rem 2rem 1rem 1rem;
+        font: normal normal normal 1rem/100% 'Montserrat',sans-serif;
+        text-align: right;
+        border: 0;
+        border-radius: .25rem;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+     
+    .flex {
+        /* flex-wrap: wrap; */
+        display: flex;
+        justify-content:space-around; 
+        align-items:center;
+        position: relative;
+    }
+    
+    .yourStrategy {
+    
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fbfbfb;
+        color: #333;
+        font-family: montserrat,sans-serif;
+        padding-bottom: 1rem; 
+        position: relative;
+    }
+    
+    button {
+        padding: 5px 5px 5px 5px;
+        color: #333;
+        background-color: #e7e7e7;
+        font: normal normal normal 1rem/100% 'Montserrat',sans-serif;
+        font-size: 17px;
+        margin: 1rem;
+    }
+    
+    .additionalStrategy {
+    
+        margin-left: auto;
+        margin-right: auto;
+        width: 79%;
+        background-color: #fbfbfb;
+        color: #333;
+        font-family: montserrat,sans-serif;
+        padding-left: 1rem; 
+        padding-top: 0.01rem;
+        padding-bottom: 1rem;
+        
+    }
+    
+    select {
+        -webkit-writing-mode: horizontal-tb !important;
+        text-rendering: auto;
+        color: -internal-light-dark(black, white);
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: start;
+        appearance: auto;
+        box-sizing: border-box;
+        align-items: center;
+        white-space: pre;
+        -webkit-rtl-ordering: logical;
+        background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+        cursor: default;
+        margin: 0em;
+        font: 400 13.3333px Arial;
+        border-radius: 0px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+        border-image: initial;
+    }
+    
+    p {
+        display: block;
+        /* margin-top: 1rem;
+        margin-bottom: 1rem; */
+        margin-block-end: 0.5em;
+        margin-block-start: 0.5em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        width: 30% ;
+    }
+    
+    label:not(.chkLabel) {
+        display: block;
+        font-size: .75rem;
+        margin: 0.6rem 0;
+        color: #666;
+    }
+    
+    .flex {
+        position: relative;
+    }
+    
+    h2.shaded {
+        background-color: #f3f3f3;
+        color: #0047f5;
+        border-bottom: 1px solid #c3c3c3;
+        padding: 1rem 1.5rem;
+    }
+    
+    .highcharts-figure, .highcharts-data-table table {
+        min-width: 310px; 
+        max-width: 800px;
+        margin: 1em auto;
+    }
+    
+    .highcharts-title {
+        fill: #434348;
+        font-weight: bold;
+        /* letter-spacing: 0.3em; */
+        /* font-size: 1.65rem; */
+        background-color: #f3f3f3;
+        color: #0047f5;
+        border-bottom: 1px solid #c3c3c3;
+        padding: 1rem 1.5rem;
+    }
+    
+    .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #EBEBEB;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+    }
+    .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+    }
+    .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+    }
+    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+        padding: 0.5em;
+    }
+    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+    }
+    .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+    }
+    
+    .ms-calc .key {
+        display: inline-block;
+        width: 15px;
+        height: 12px;
+        margin-right: 5px;
+    }
+</style>
 </head>
 
 <body>
@@ -65,7 +302,7 @@
                         <p class="highcharts-description">
                             Hello world.
                         </p>
-                    --> 
+                    -->
                     </div>
                 </figure>
             </div>
@@ -76,10 +313,11 @@
 
 
     <!--Create Charts Script -->
-    <script src="btnEvent.js"></script>
-    <script src="main.js"></script>
-    <script src="highchart.js"></script>
-    <script src="highcharts.js"></script>
+    <!--<script src="btnEvent.js"></script> -->
+    <!-- <script src="main.js"></script> -->
+    <!-- <script src="highchart.js"></script> -->
+    <!-- <script src="highcharts.js"></script> --> 
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 
     <script type="text/javascript">
         function genChart() {
@@ -106,8 +344,8 @@
             let yearList = genYearList(investYear);
 
             chart(yearList, data);
-            let container = document.getElementById("container") ; 
-            container.removeAttribute("hidden") ; 
+            let container = document.getElementById("container");
+            container.removeAttribute("hidden");
 
             // write the Your Strategy results
             /**
@@ -124,6 +362,421 @@
             }
             */
         }
+    </script>
+
+    <!-- Import code for main.js -->
+    <script type="text/javascript">
+        function sortAndCombineInvestments(investments) {
+            /**
+             *  Sort the investments by their years, for all the investments made in the same year, combine them into
+             *  a single investment. 
+             *  For example, [(1000, 3), (2000, 2), (500, 1), (1000, 2)] => [(500, 1), (3000, 2), (1000, 3)]
+             *  
+             *  investments: [(money, year)]. e.g, [(1000, 2), (2000, 3)] meaning at year two a $1000 investment
+             *      was made, and at year 3 $2000 investment was made. 
+             */
+            if (investments.length == 0) return [];
+            let sortInvestments = investments.sort((a, b) => a[1] - b[1]);
+            let result = [];
+            result.push(sortInvestments[0]);
+            let size = 1;
+            for (let i = 1; i < sortInvestments.length; i++) {
+                // Combine the investments that has the same year. 
+                if (result[size - 1][1] == sortInvestments[i][1]) {
+                    result[size - 1][0] += sortInvestments[i][0];
+                }
+                else {
+                    result.push(sortInvestments[i]);
+                    size += 1;
+                }
+            }
+            return result;
+        }
+
+        // for debug purposes
+        function printInvestmentData(investment, year) {
+            let [deposit, contribution, interest] = investment;
+            return `year ${year}: deposit=${deposit}, contribution=${contribution}, interest=${interest}`;
+        }
+
+        function genYearList(year) {
+            let result = [];
+            for (let i = 0; i < year; i++) result.push(i + 1);
+            return result;
+        }
+
+        function debugMain() {
+            let [deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear] =
+                /**
+                 *  Initial deposit: 10000
+                 *  regular fortnight investment: 200
+                 */
+                [10000, 200, 26, 0.05, 12, 30];
+            let additionalInvestments = [[500, 2], [1500, 5], [5000, 1], [3500, 3], [4500, 29], [5000, 30]];
+            let result = getYearlyDataWithAdditionalInvestment
+                (deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear, additionalInvestments);
+
+            console.log(result); // debug
+            // let result2 = getYearlyData(deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear)  ;
+            // console.log(result2) ; 
+            chart(genYearList(investYear), result);
+        }
+
+        function getYearlyDataWithAdditionalInvestment
+            (deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear, additionalInvestments) {
+            /*
+             *  deposit: Int -> The initial deposit for the interest calculation. e.g, $10,000.
+             *  regContribution: Int -> the amount of regular contribution. $100.
+             *  contributeFreq: Int -> the frequency of contribution.
+             *      1 -> yearly, 12 -> monthly, 26 -> fortnightly, 52 -> weekly, 365 -> daily. 
+             *  interestRate: Float -> the compound interest Rate (annual rate). 0.05 => 5%
+             *  compoundFreq: Int -> the frequency of compounding the interest. 1 -> yearly, 12 -> monthly.
+             *  investYear: Int -> number of years of investment. 
+             *  additionalInvestments: List[(investment, year)], data for additional investments. 
+             * 
+             *  Returns an array of data series, each element in the array is [deposit, contribution, interest] 
+             *  that's accumulated to that year. Consider the additional Investments. 
+             * 
+             */
+            let addInvestments = sortAndCombineInvestments(additionalInvestments);
+            // debug
+            // console.log(deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear, additionalInvestments) ;
+
+            // if there's no additional investments. 
+            if (addInvestments.length == 0) {
+                // temp is [[deposit, accuContribution, interest]]
+                let temp = getYearlyData(deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear);
+                let depositList = temp.map(elem => Math.ceil(elem[0]));
+                let contributionList = temp.map(elem => Math.ceil(elem[1]));
+                let interestList = temp.map(elem => Math.ceil(elem[2]));
+                let result = [
+                    { name: 'Deposit', data: depositList },
+                    { name: 'Regular Contribution', data: contributionList },
+                    { name: 'Interest', data: interestList }
+                ];
+                return result;
+            }
+
+            const generateDepositList = (year) => {
+                let curDeposit = deposit;
+                let result = [];
+                let curYear = 1;
+                addInvestments.forEach(item => {
+                    for (let i = curYear; i < item[1]; i++) {
+                        result.push(curDeposit);
+                    }
+                    curDeposit += item[0];
+                    curYear = item[1] + 1;
+                    result.push(curDeposit);
+                });
+                while (curYear <= year) {
+                    result.push(curDeposit);
+                    curYear += 1;
+                }
+                return result;
+            }
+            const generateRegContributionList = (year) => {
+                let monthlyContribution = calculateMonthlyContribution(regContribution, contributeFreq);
+                let yearlyContribution = 12 * monthlyContribution;
+                let result = [];
+                let curContribution = yearlyContribution;
+                for (let i = 0; i < year; i++) {
+                    result.push(curContribution);
+                    curContribution += yearlyContribution;
+                }
+                return result;
+            }
+            let depositList = generateDepositList(investYear);
+            let contributionList = generateRegContributionList(investYear);
+
+            let monthlyContribution = calculateMonthlyContribution(regContribution, contributeFreq);
+            let yearlyContribution = 12 * monthlyContribution;
+            // calculate the investment performance year by year
+            let curDeposit = deposit;
+            let interestList = [];
+            let curInterest = 0;
+            for (let i = 0; i < investYear; i++) {
+                if (addInvestments.length > 0 && additionalInvestments[0][1] == i) {
+                    curDeposit += addInvestments[0][0];
+                    addInvestments.splice(0, 1);
+                }
+                let temp = getYearlyData(curDeposit, regContribution, contributeFreq, interestRate, compoundFreq, 1)[0];
+                let interest = temp[2];
+                let contribution = temp[1];
+                curDeposit = curDeposit + contribution + interest;
+                curInterest += interest;
+                interestList.push(curInterest);
+            }
+            let result = [
+                { name: 'Deposit', data: depositList.map(num => Math.ceil(num)) },
+                { name: 'Regular Contribution', data: contributionList.map(num => Math.ceil(num)) },
+                { name: 'Interest', data: interestList.map(num => Math.ceil(num)) }
+            ];
+            // console.log(result) ; // debug
+            return result;
+        }
+
+        function getYearlyData(deposit, regContribution, contributeFreq, interestRate, compoundFreq, investYear) {
+            /**
+             *  deposit: Int -> The initial deposit for the interest calculation. e.g, $10,000.
+             *  regContribution: Int -> the amount of regular contribution. $100.
+             *  contributeFreq: Int -> the frequency of contribution.
+             *      1 -> yearly, 12 -> monthly, 26 -> fortnightly, 52 -> weekly, 365 -> daily. 
+             *  interestRate: Float -> the compound interest Rate (annual rate). 0.05 => 5%
+             *  compoundFreq: Int -> the frequency of compounding the interest. 1 -> yearly, 12 -> monthly.
+             *  investYear: Int -> number of years of investment. 
+             * 
+             *  Returns an array of data series, each element in the array is [deposit, contribution, interest] 
+             *  that's accumulated to that year.
+             * 
+             */
+            let monthlyContribution = calculateMonthlyContribution(regContribution, contributeFreq);
+            let currentInvest = deposit;
+            let data = [];
+            let accuContribution = 0;
+            let accuInterest = 0;
+            for (let i = 0; i < investYear; i++) {
+                let interest = calculateInterest(currentInvest, regContribution, contributeFreq, interestRate, compoundFreq);
+                accuContribution = accuContribution + monthlyContribution * 12;
+                accuInterest = accuInterest + interest;
+                currentInvest = currentInvest + monthlyContribution * 12 + interest;
+                data.push([deposit, accuContribution, accuInterest]);
+            }
+            return data;
+        }
+
+        function calculateInterest(deposit, regContribution, contributeFreq, interestRate, compoundFreq) {
+            /**
+             *  deposit: Int -> The initial deposit for the interest calculation.
+             *  regContribution: Int -> the amount of regular contribution.
+             *  contributeFreq: Int -> the frequency of contribution. 1 -> yearly, 12 -> monthly, 26 -> fortnightly, 
+             *      52 -> weekly, 365 -> daily. 
+             *  interestRate: Float -> the compound interest Rate (annual rate).
+             *  compoundFreq: Int -> the frequency of compounding the interest. 1 -> yearly, 12 -> monthly.
+             *  Returns: the amount of interest generated in a year, by the given parameters. 
+             * 
+             *  Assuming contribution happens on the end of each cycle. 
+             */
+            return contributeInterest(regContribution, contributeFreq, interestRate, compoundFreq) +
+                depositInterest(deposit, interestRate, compoundFreq);
+        }
+
+        function calculateMonthlyContribution(regContribution, contributionFreq) {
+            /**
+             *  Calculate the equal monthly contribution.
+             * 
+             */
+            let contMap = new Map([[1, 1 / 12], [12, 1], [26, 26 / 12], [52, 52 / 12], [365, 30]]);
+            let monthlyContribution = regContribution * contMap.get(contributionFreq);
+            return monthlyContribution;
+        }
+
+        function contributeInterest(regContribution, contFreq, interestRate, compoundFreq) {
+            /**
+             *  Calculate the interest generated by the regular contribution. 
+             *  regContribution: Int -> contribution amount, i.e., $100 
+             *  contFreq: Int -> the frequency of contribution. 1 -> yearly, 12 -> monthly, 26 -> fortnightly,
+             *      52 -> weekly, 365 -> daily. 
+             *  interestRate: Float. The annual interest rate.
+             *  compoundFreq: Int. 1 -> yearly, 12 -> monthly.
+             *  Return only the *Interest* generated in this period (1 year), not including the contribution itself.
+             */
+            if (contFreq === 1 || compoundFreq == 1) {
+                // Assuming the contribution made at the end of the year, so it doesn't accure any interest at all. 
+                // When the interest only compound yearly, the interest for this year is zero. 
+                return 0.0;
+            }
+
+            let monthlyContribution = calculateMonthlyContribution(regContribution, contFreq);
+            let monthlyInterestRate = interestRate / 12;
+            let result = 0.0;
+            for (let i = 0; i < 12; i++) {
+                let interest = result * monthlyInterestRate;
+                result = result + interest + monthlyContribution;
+            }
+            return Math.ceil(result - monthlyContribution * 12);
+        }
+
+        function depositInterest(deposit, interestRate, compoundFreq) {
+            /**
+             *  Calculate the interest generated by the deposit.
+             *  deposit: Int -> initial deposit amount.
+             *  interestRate: Float -> must be non less than zero. The compounding interest annual rate. 
+             *  compoundFreq: Int -> compounding frequency. 1 -> yearly, 12 -> monthly.  
+             *  Return only the *INTEREST* generated in this period, not including the deposit.
+             */
+            return Math.ceil(deposit * (Math.pow(1 + interestRate / compoundFreq, compoundFreq) - 1));
+        }
+    </script>
+
+    <!-- import code for highchart.js -->
+    <script type="text/javascript">
+        const chart = (yearArr, dataArr) => {
+            Highcharts.setOptions({
+                colors: ['#058DC7', '#50B432', 'orange', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+            });
+
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'column',
+                    height: (16 / 16 * 100) + '%' // 16:16 ratio
+                },
+                title: {
+                    text: 'Result',
+                    align: 'left',
+                    style: { "color": "blue", "font-size": "1.7rem" }
+
+                },
+                xAxis: {
+                    categories: yearArr,
+                    // categories: ['1', '2', '3', '4', '5'],
+                    title: {
+                        text: 'Years'
+                    },
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Savings'
+                    },
+                    stackLabels: {
+                        enabled: true,
+                        style: {
+                            fontWeight: 'bold',
+                            color: ( // theme
+                                Highcharts.defaultOptions.title.style &&
+                                Highcharts.defaultOptions.title.style.color
+                            ) || 'gray'
+                        }
+                    },
+                    reversedStacks: false
+                },
+                legend: {
+                    align: 'right',
+                    x: -30,
+                    verticalAlign: 'top',
+                    y: 25,
+                    // floating: true,
+                    backgroundColor:
+                        Highcharts.defaultOptions.legend.backgroundColor || 'white',
+                    borderColor: '#CCC',
+                    borderWidth: 1,
+                    shadow: false
+                },
+                tooltip: {
+                    formatter: function () {
+                        var tooltip = '<table><caption style="text-align: left">After ' + this.x + ' Year/s:</caption><tbody>';
+                        //loop each point in this.points
+                        this.points.forEach(point => {
+                            tooltip += '<tr><th style="color: ' + point.series.color + '">' + point.series.name + ': </th>'
+                                + '<td style="text-align: right">$' + point.y + '</td></tr>'
+                        });
+                        tooltip += '<tr><th>Total: </th>'
+                            + '<td style="text-align: right"><b>$' + +this.points[0].total + '</b></td></tr></tbody></table>';
+
+                        return tooltip;
+                    },
+                    useHTML: true,
+                    shared: true
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal'
+                    }
+                },
+                series: dataArr
+                // series: [{
+                //     name: 'Initial Principal',
+                //     data: [5, 3, 4, 7, 2]
+                // }, {
+                //     name: 'Regular Deposits',
+                //     data: [2, 2, 3, 2, 1]
+                // }, {
+                //     name: 'Additional Investment',
+                //     data: [3, 4, 4, 2, 5]
+                // }, {
+                //     name: 'Total Interest',
+                //     data: [3, 4, 4, 2, 5]
+                // },
+                // ]
+            });
+        }
+    </script>
+
+    <!-- import code for btnEvent.js -->
+    <script type="text/javascript">
+        // global variable for additional investment
+        var cur_id = 1;
+        var deposit_limit = 2; // number of additional investment can be made. Subject to change.
+
+        // Create node
+        const addElement = (type) => {
+            let element = document.createElement(type);
+            return element;
+        };
+
+        // Create <label> node with for attribute
+        const addLabel = (txt, i) => {
+            let forId = "input" + cur_id + i;
+            let label = addElement("LABEL");
+            let t = document.createTextNode(txt);
+            label.setAttribute("for", forId);
+            label.appendChild(t);
+            return label;
+        };
+
+        // Create <label> node with attributes
+        const addInput = (i, defaultInputValue = null) => {
+            let inputId = "input" + cur_id + i;
+            let input = addElement("INPUT");
+            input.setAttribute("id", inputId);
+            input.setAttribute("inputmode", "numeric");
+            input.setAttribute("type", "text");
+            input.setAttribute("aria-required", "true");
+            input.setAttribute("value", defaultInputValue);
+            return input;
+        };
+
+        // Create the node pair of <label> and <input>
+        const addPair = (txt, i, defaultInputValue) => {
+            let div = addElement("p");
+            let label = addLabel(txt, i);
+            let input = addInput(i, defaultInputValue);
+            div.appendChild(label);
+            div.appendChild(input);
+            return div;
+        };
+
+        // Create the node block of 2 pairs with className
+        const addBlock = () => {
+            let pair1 = addPair("Additional investment " + cur_id + ":", "a", 10000);
+            let pair2 = addPair("At Year:", "b", 5);
+
+            // place holder, hidden
+            let pair3 = addPair("", "", "");
+            pair3.children[1].setAttribute("style", "background-color:#fbfbfb;border:0px");
+            return [pair1, pair2, pair3];
+        };
+
+        // Create the documentFragment
+        const addContainer = () => {
+            let addButton = document.getElementById("additionalDepositButton");
+            let container = document.getElementsByClassName("yourStrategy")[0];
+            addBlock().forEach(pair =>
+                container.insertBefore(pair, addButton)
+            );
+            cur_id += 1;
+            if (cur_id > deposit_limit) {
+                addButton.setAttribute("style", "visibility:hidden");
+            }
+        };
+
+        const confirmBtn = () => {
+            if (cur_id <= 2) {
+                addContainer();
+            }
+        };
+
     </script>
 
 </body>
