@@ -4,242 +4,255 @@
 <head>
     <!-- <link rel="stylesheet" href="styles.css" /> -->
     <style>
-    #container {
-        height: 800px; 
-    }
-    
-    #content {
-        max-width: 47.05rem;
-        margin: 0 auto;
-        padding: 0 1rem;
-        display: block;
-    }
-    
-    .ms-calc {
-        background-color: transparent;
-        padding: 0;
-        margin: 2rem 0;
-        border: 1px solid #e1e1e1;
-    }
-    .ms-calc .col100 {
-        flex-basis: 100%;
-        padding-right: 1rem;
-        padding-left: 1rem;
-    }
-    
-    .ms-calc .input {
-        flex-wrap: wrap;
-        display: flex;
-        justify-content: space-around;
-        position: relative;
-    }
-    
-    .col100 {
-        margin-block-start: 1em;
-        margin-block-end: 0.5em;
-    }
-    
-    .shaded {
-        margin-block-start: 0em;
-        margin-block-end: 0em;
-    }
-    
-    input {
-        -webkit-writing-mode: horizontal-tb !important;
-        text-rendering: auto;
-        color: -internal-light-dark(black, white);
-        letter-spacing: normal;
-        word-spacing: normal;
-        text-transform: none;
-        text-indent: 0px;
-        text-shadow: none;
-        display: inline-block;
-        text-align: start;
-        appearance: auto;
-        background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
-        -webkit-rtl-ordering: logical;
-        cursor: text;
-        margin: 0em;
-        font: 400 13.3333px Arial;
-        padding: 1px 2px;
-        margin-right:1rem;
-    
-        border-width: 2px;
-        border-style: inset;
-        border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-        border-image: initial;
-    }
-    
-    input[type=text], input[type=number] {
-        padding: 1rem;
-        font: normal normal normal 1rem/100% 'Montserrat',sans-serif;
-        border: 0;
-        border-radius: .25rem;
-        box-sizing: border-box;
-        border: solid .05rem #f3f3f3;
-    }
-    #content select, #calculator-container select {
-        padding: 1rem 2rem 1rem 1rem;
-        font: normal normal normal 1rem/100% 'Montserrat',sans-serif;
-        text-align: right;
-        border: 0;
-        border-radius: .25rem;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        appearance: none;
-    }
-     
-    .flex {
-        /* flex-wrap: wrap; */
-        display: flex;
-        justify-content:space-around; 
-        align-items:center;
-        position: relative;
-    }
-    
-    .yourStrategy {
-    
-        margin-left: auto;
-        margin-right: auto;
-        background-color: #fbfbfb;
-        color: #333;
-        font-family: montserrat,sans-serif;
-        padding-bottom: 1rem; 
-        position: relative;
-    }
-    
-    button {
-        padding: 5px 5px 5px 5px;
-        color: #333;
-        background-color: #e7e7e7;
-        font: normal normal normal 1rem/100% 'Montserrat',sans-serif;
-        font-size: 17px;
-        margin: 1rem;
-    }
-    
-    .additionalStrategy {
-    
-        margin-left: auto;
-        margin-right: auto;
-        width: 79%;
-        background-color: #fbfbfb;
-        color: #333;
-        font-family: montserrat,sans-serif;
-        padding-left: 1rem; 
-        padding-top: 0.01rem;
-        padding-bottom: 1rem;
-        
-    }
-    
-    select {
-        -webkit-writing-mode: horizontal-tb !important;
-        text-rendering: auto;
-        color: -internal-light-dark(black, white);
-        letter-spacing: normal;
-        word-spacing: normal;
-        text-transform: none;
-        text-indent: 0px;
-        text-shadow: none;
-        display: inline-block;
-        text-align: start;
-        appearance: auto;
-        box-sizing: border-box;
-        align-items: center;
-        white-space: pre;
-        -webkit-rtl-ordering: logical;
-        background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
-        cursor: default;
-        margin: 0em;
-        font: 400 13.3333px Arial;
-        border-radius: 0px;
-        border-width: 1px;
-        border-style: solid;
-        border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-        border-image: initial;
-    }
-    
-    p {
-        display: block;
-        /* margin-top: 1rem;
+        #container {
+            height: 800px;
+        }
+
+        #content {
+            max-width: 47.05rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: block;
+        }
+
+        .ms-calc {
+            background-color: transparent;
+            padding: 0;
+            margin: 2rem 0;
+            border: 1px solid #e1e1e1;
+        }
+
+        .ms-calc .col100 {
+            flex-basis: 100%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
+
+        .ms-calc .input {
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+        }
+
+        .col100 {
+            margin-block-start: 1em;
+            margin-block-end: 0.5em;
+        }
+
+        .shaded {
+            margin-block-start: 0em;
+            margin-block-end: 0em;
+        }
+
+        input {
+            -webkit-writing-mode: horizontal-tb !important;
+            text-rendering: auto;
+            color: -internal-light-dark(black, white);
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+            appearance: auto;
+            background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+            -webkit-rtl-ordering: logical;
+            cursor: text;
+            margin: 0em;
+            font: 400 13.3333px Arial;
+            padding: 1px 2px;
+            margin-right: 1rem;
+
+            border-width: 2px;
+            border-style: inset;
+            border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+            border-image: initial;
+        }
+
+        input[type=text],
+        input[type=number] {
+            padding: 1rem;
+            font: normal normal normal 1rem/100% 'Montserrat', sans-serif;
+            border: 0;
+            border-radius: .25rem;
+            box-sizing: border-box;
+            border: solid .05rem #f3f3f3;
+        }
+
+        #content select,
+        #calculator-container select {
+           padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+            font: normal normal normal 0.7rem/100% 'Montserrat', sans-serif;
+            text-align: center;
+            border: 0;
+            border-radius: .25rem;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .flex {
+            /* flex-wrap: wrap; */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+        }
+
+        .yourStrategy {
+
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fbfbfb;
+            color: #333;
+            font-family: montserrat, sans-serif;
+            padding-bottom: 1rem;
+            position: relative;
+        }
+
+        button {
+            padding: 5px 5px 5px 5px;
+            color: #333;
+            background-color: #e7e7e7;
+            font: normal normal normal 1rem/100% 'Montserrat', sans-serif;
+            font-size: 17px;
+            margin: 1rem;
+        }
+
+        .additionalStrategy {
+
+            margin-left: auto;
+            margin-right: auto;
+            width: 79%;
+            background-color: #fbfbfb;
+            color: #333;
+            font-family: montserrat, sans-serif;
+            padding-left: 1rem;
+            padding-top: 0.01rem;
+            padding-bottom: 1rem;
+
+        }
+
+        select {
+            -webkit-writing-mode: horizontal-tb !important;
+            text-rendering: auto;
+            color: -internal-light-dark(black, white);
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+            appearance: auto;
+            box-sizing: border-box;
+            align-items: center;
+            white-space: pre;
+            -webkit-rtl-ordering: logical;
+            background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+            cursor: default;
+            margin: 0em;
+            font: 400 13.3333px Arial;
+            border-radius: 0px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+            border-image: initial;
+        }
+
+        p {
+            display: block;
+            /* margin-top: 1rem;
         margin-bottom: 1rem; */
-        margin-block-end: 0.5em;
-        margin-block-start: 0.5em;
-        margin-block-end: 0em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        width: 30% ;
-    }
-    
-    label:not(.chkLabel) {
-        display: block;
-        font-size: .75rem;
-        margin: 0.6rem 0;
-        color: #666;
-    }
-    
-    .flex {
-        position: relative;
-    }
-    
-    h2.shaded {
-        background-color: #f3f3f3;
-        color: #0047f5;
-        border-bottom: 1px solid #c3c3c3;
-        padding: 1rem 1.5rem;
-    }
-    
-    .highcharts-figure, .highcharts-data-table table {
-        min-width: 310px; 
-        max-width: 800px;
-        margin: 1em auto;
-    }
-    
-    .highcharts-title {
-        fill: #434348;
-        font-weight: bold;
-        /* letter-spacing: 0.3em; */
-        /* font-size: 1.65rem; */
-        background-color: #f3f3f3;
-        color: #0047f5;
-        border-bottom: 1px solid #c3c3c3;
-        padding: 1rem 1.5rem;
-    }
-    
-    .highcharts-data-table table {
-        font-family: Verdana, sans-serif;
-        border-collapse: collapse;
-        border: 1px solid #EBEBEB;
-        margin: 10px auto;
-        text-align: center;
-        width: 100%;
-        max-width: 500px;
-    }
-    .highcharts-data-table caption {
-        padding: 1em 0;
-        font-size: 1.2em;
-        color: #555;
-    }
-    .highcharts-data-table th {
-        font-weight: 600;
-        padding: 0.5em;
-    }
-    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-        padding: 0.5em;
-    }
-    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-        background: #f8f8f8;
-    }
-    .highcharts-data-table tr:hover {
-        background: #f1f7ff;
-    }
-    
-    .ms-calc .key {
-        display: inline-block;
-        width: 15px;
-        height: 12px;
-        margin-right: 5px;
-    }
-</style>
+            margin-block-end: 0.5em;
+            margin-block-start: 0.5em;
+            margin-block-end: 0em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            width: 30%;
+        }
+
+        label:not(.chkLabel) {
+            display: block;
+            font-size: .75rem;
+            margin: 0.6rem 0;
+            color: #666;
+        }
+
+        .flex {
+            position: relative;
+        }
+
+        h2.shaded {
+            background-color: #f3f3f3;
+            color: #0047f5;
+            border-bottom: 1px solid #c3c3c3;
+            padding: 1rem 1.5rem;
+        }
+
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 310px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        .highcharts-title {
+            fill: #434348;
+            font-weight: bold;
+            /* letter-spacing: 0.3em; */
+            /* font-size: 1.65rem; */
+            background-color: #f3f3f3;
+            color: #0047f5;
+            border-bottom: 1px solid #c3c3c3;
+            padding: 1rem 1.5rem;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+
+        .ms-calc .key {
+            display: inline-block;
+            width: 15px;
+            height: 12px;
+            margin-right: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -298,11 +311,6 @@
                 <figure class="highcharts-figure">
                     <div hidden id="container"></div>
                     <div id="description">
-                        <!-- 
-                        <p class="highcharts-description">
-                            Hello world.
-                        </p>
-                    -->
                     </div>
                 </figure>
             </div>
@@ -316,9 +324,8 @@
     <!--<script src="btnEvent.js"></script> -->
     <!-- <script src="main.js"></script> -->
     <!-- <script src="highchart.js"></script> -->
-    <!-- <script src="highcharts.js"></script> --> 
+    <!-- <script src="highcharts.js"></script> -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-
     <script type="text/javascript">
         function genChart() {
             let deposit = parseInt(document.getElementById("pv").value);
@@ -347,20 +354,6 @@
             let container = document.getElementById("container");
             container.removeAttribute("hidden");
 
-            // write the Your Strategy results
-            /**
-            let resultContainer = document.getElementById("description") ; 
-            let p1 = document.createElement("p") ; p1.textContent = "Your Strategy:" ;
-            resultContainer.appendChild(p1) ; 
-            
-            // intial deposit
-            let pv = document.createElement("p") ; 
-            {
-                let sp1 = document.createElement("span") ; 
-                sp1.className = "key pv" ;
-                let text = document.createTextNode("Initial deposit:") ; 
-            }
-            */
         }
     </script>
 
@@ -672,7 +665,7 @@
                                 + '<td style="text-align: right">$' + point.y + '</td></tr>'
                         });
                         tooltip += '<tr><th>Total: </th>'
-                            + '<td style="text-align: right"><b>$' + +this.points[0].total + '</b></td></tr></tbody></table>';
+                            + '<td style="text-align: right"><b>$' +this.points[0].total + '</b></td></tr></tbody></table>';
 
                         return tooltip;
                     },
@@ -778,6 +771,7 @@
         };
 
     </script>
+
 
 </body>
 
